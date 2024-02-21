@@ -27,9 +27,10 @@ public class BallController : MonoBehaviour
             Launch();
         }
     }
-    // Start the game and push the ball around randomly
+    // Push the ball around randomly
     void Launch()
     {
+        // get random launching position
         xDirection = Random.Range(0, 2);
         yDirection = Random.Range(0, 2);
         Vector3 direction = new Vector3(0, 0, 0);
@@ -47,7 +48,5 @@ public class BallController : MonoBehaviour
             rbBall.velocity = Vector3.zero;
             inPlay = false;
         } 
-
     }
-
 }
