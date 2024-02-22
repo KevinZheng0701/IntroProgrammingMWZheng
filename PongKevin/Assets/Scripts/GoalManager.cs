@@ -20,7 +20,7 @@ public class GoalManager : MonoBehaviour
         
     }
 
-    // 
+    // Handle scoring
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ball")
