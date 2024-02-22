@@ -8,10 +8,12 @@ public class PaddleController : MonoBehaviour
     public Rigidbody2D rbPaddle;
     public bool isPlayer1;
     public float paddleSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
         paddleSpeed = 0.01f;
+        Reset();
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class PaddleController : MonoBehaviour
             Player2Control();
         }
     }
+
     // Controls up and down movements for both paddles
     void Player1Control()
     {
@@ -78,5 +81,19 @@ public class PaddleController : MonoBehaviour
             newPos.y = -3.495f;
             transform.position = newPos;
         }
+    }
+    // Reset paddle positions
+    void Reset()
+    {
+        Vector3 newPos = transform.position;
+        if (isPlayer1)
+        {
+            newPos.x = -7.5f;
+        }
+        else
+        {
+            newPos.x = 7.5f;
+        }
+        transform.position = newPos;
     }
 }
