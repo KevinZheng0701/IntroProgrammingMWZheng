@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SnakeMovement : MonoBehaviour
 {
     // Global variables
     public Vector3 direction = Vector3.right;
+    List<Transform> tail = new List<Transform>();
+    bool ateFood = false;
+    public GameObject bodyPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("MoveSnake", 0.3f, 0.1f);
+        InvokeRepeating("MoveSnake", 0.5f, 0.1f);
     }
 
     // Update is called once per frame
@@ -22,10 +26,23 @@ public class SnakeMovement : MonoBehaviour
     // Move snake around
     void MoveSnake()
     {
+        Vector3 gap = transform.position;
         transform.Translate(direction);
+        if (ateFood)
+        {
+            GameObject tailSec = Instantiate(bodyPrefab, gap, Quaternion.identity);
+            tail.Insert(0, tailSec.transform);
+            ateFood = false;
+        }
+        if (tail.Count > 0)
+        {
+            tail.Last().position = gap;
+            tail.Insert(0, tail.Last());
+            tail.RemoveAt(tail.Count - 1);
+        }
     }
     // Change the direction
-    private void ChangeDirection()
+    void ChangeDirection()
     {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -48,8 +65,17 @@ public class SnakeMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Food")
         {
-            Debug.Log("A");
+            ateFood = true; 
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.tag == "Wall")
+        {
+            while(tail.Count != 0)
+            {
+                tail.RemoveAt(0);
+            }
+            transform.position = new Vector3(0, 0, 0);
+        }
     }
+
 }

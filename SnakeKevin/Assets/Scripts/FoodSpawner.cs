@@ -26,7 +26,6 @@ public class FoodSpawner : MonoBehaviour
     // Spawn food randomly
     void SpawnFood()
     {
-        // get random spawn location
         int xPos = (int)Random.Range(wallLeft.position.x + 1, wallRight.position.x - 1);
         int yPos = (int)Random.Range(wallBottom.position.y + 1, wallTop.position.y - 1);
         Instantiate(foodPrefab, new Vector3(xPos, yPos, 0), Quaternion.identity);

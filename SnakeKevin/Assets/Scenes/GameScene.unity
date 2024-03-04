@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 416989894}
   m_Layer: 0
   m_Name: LeftWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 855560644}
   m_Layer: 0
   m_Name: BottomWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 1, y: 0, z: 0}
+  bodyPrefab: {fileID: 7176945706664443763, guid: 14b482adfc2f3ed4c98e31ed12b97e04, type: 3}
 --- !u!1 &1773416170
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +545,7 @@ GameObject:
   - component: {fileID: 1773416172}
   m_Layer: 0
   m_Name: TopWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,7 +656,7 @@ GameObject:
   - component: {fileID: 1838963050}
   m_Layer: 0
   m_Name: RightWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -775,6 +776,18 @@ PrefabInstance:
     - target: {fileID: 7176945706664443757, guid: 14b482adfc2f3ed4c98e31ed12b97e04, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176945706664443758, guid: 14b482adfc2f3ed4c98e31ed12b97e04, type: 3}
+      propertyPath: m_Color.b
+      value: 0.12246352
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176945706664443758, guid: 14b482adfc2f3ed4c98e31ed12b97e04, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176945706664443758, guid: 14b482adfc2f3ed4c98e31ed12b97e04, type: 3}
+      propertyPath: m_Color.r
+      value: 0.31715074
       objectReference: {fileID: 0}
     - target: {fileID: 7176945706664443759, guid: 14b482adfc2f3ed4c98e31ed12b97e04, type: 3}
       propertyPath: m_RootOrder
