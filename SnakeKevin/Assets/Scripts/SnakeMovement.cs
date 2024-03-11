@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using UnityEngine.SceneManagement;
+using System.Linq; // library to use list
+using UnityEngine.SceneManagement; // library for scene management
 
 public class SnakeMovement : MonoBehaviour
 {
@@ -46,19 +46,19 @@ public class SnakeMovement : MonoBehaviour
     // Change the direction
     void ChangeDirection()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) // W or Uparrow is pressed
         {
             direction = Vector3.up; // Move up
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) // S or Downarrow is pressed
         {
             direction = Vector3.down; // Move down
         }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) // A or Leftarrow is pressed
         {
             direction = Vector3.left; // Move left
         }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) // D or Rightarrow is pressed
         {
             direction = Vector3.right; // Move right
         }

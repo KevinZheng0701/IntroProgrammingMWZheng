@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using TMPro; // library for the text mesh pro
 
 public class GameManager : MonoBehaviour
 {
