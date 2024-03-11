@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq; // library to use list
-using UnityEngine.SceneManagement; // library for scene management
+using System.Linq; // Library to use list
+using UnityEngine.SceneManagement; // Library for scene management
 
 public class SnakeMovement : MonoBehaviour
 {
