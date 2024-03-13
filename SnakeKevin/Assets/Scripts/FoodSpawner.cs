@@ -28,7 +28,7 @@ public class FoodSpawner : MonoBehaviour
     void SpawnFood()
     {
         GameObject food; // Food to be spawn
-        if (Random.Range(0, 10) > 9) // Get random number between 0 and 10 and will have around 10% to spawn poison food
+        if (Random.Range(0, 10) > 8) // Get random number between 0 and 10 and will have around 10% to spawn poison food
         {
             food = poisonPrefab; // Assign food to be a poison food
         } else

@@ -397,6 +397,7 @@ GameObject:
   - component: {fileID: 694097328}
   - component: {fileID: 694097327}
   - component: {fileID: 694097329}
+  - component: {fileID: 694097330}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -417,6 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrefab: {fileID: 7530743405754454867, guid: e025fd07470fd0a458fd7dad9f3c8dab, type: 3}
+  poisonPrefab: {fileID: 4035223369061219407, guid: b309a519cabf84c4e9563bea2aa13ac4, type: 3}
   wallTop: {fileID: 1773416171}
   wallBottom: {fileID: 855560643}
   wallLeft: {fileID: 416989893}
@@ -449,6 +451,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1285987388}
+--- !u!114 &694097330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694097326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb877c776ac5c443ac959996758610b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &855560642
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,14 +760,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -850,6 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 1, y: 0, z: 0}
   bodyPrefab: {fileID: 7176945706664443763, guid: 14b482adfc2f3ed4c98e31ed12b97e04, type: 3}
+  mySceneChanger: {fileID: 0}
   myManager: {fileID: 694097329}
 --- !u!1 &1773416170
 GameObject:

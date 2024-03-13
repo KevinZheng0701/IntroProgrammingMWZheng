@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq; // Library to use list
-using UnityEngine.SceneManagement; // Library for scene management
 
 public class SnakeMovement : MonoBehaviour
 {
@@ -10,7 +9,10 @@ public class SnakeMovement : MonoBehaviour
     public Vector3 direction = Vector3.right; // Direction of the snake
     List<Transform> tail = new List<Transform>(); // List of snake body
     bool ateFood = false; // Flag for whether the snake recently ate food
+    private bool atePoison = false; // Boolean for whether the snake ate a poison food
+    private float poisonTimer = 0; // Timer to keep track of time left after eating poison food
     public GameObject bodyPrefab; // Grab snake body to spawn after eating
+    public SceneChanger mySceneChanger; // Grab the scene changer script
     public GameManager myManager; // Game manager script to update score
 
     // Start is called before the first frame update
@@ -23,6 +25,17 @@ public class SnakeMovement : MonoBehaviour
     void Update()
     {
         ChangeDirection(); // Check for movement changes
+        if (atePoison) // Ate poison, so any food that snake eats will decrease point
+        {
+            if (poisonTimer > 0) // There is still time left with poison effect
+            {
+                poisonTimer -= Time.deltaTime; // Lower time
+            }
+            else // The timer ends
+            {
+                atePoison = false; // Snake is healthy so set atePoison to false
+            }
+        }
     }
 
     // Move snake around
@@ -68,13 +81,22 @@ public class SnakeMovement : MonoBehaviour
         if (collision.gameObject.tag == "Food") // Collide with food
         {
             ateFood = true; // Set bool to true
+            if (collision.gameObject.name.Contains("Poison")) {
+                myManager.Decrease(3); // Decrease score after eating poison food
+                atePoison = true;
+                poisonTimer = 10f;
+            } else if (atePoison) // Snake is poisoned
+            {
+                myManager.Decrease(1); // Eating food will decrease score
+            } else 
+            {
+                myManager.Increase(1); // Increase the score after eating
+            }
             Destroy(collision.gameObject); // Ate the food
-            myManager.Increase(); // Increase the score after eating
         }
         else if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Body") // Hit the wall or the snake
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reset the game to the original state
+            mySceneChanger.ChangeScene(2); // Go to game over screen
         }
     }
-
 }

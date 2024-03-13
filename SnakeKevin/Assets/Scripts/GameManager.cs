@@ -22,8 +22,19 @@ public class GameManager : MonoBehaviour
     }
 
     // Increment score
-    public void Increase()
+    public void Increase(int number)
     {
-        score++; // Add one to score
+        score += number; // Add score by a certain number
+    }
+    // Decrement score
+    public void Decrease(int number)
+    {
+        if (score - number > 0) // Subtracting the score is higher than zero
+        {
+            score -= number; // Subtract score by the number
+        } else // Score should not be negative
+        {
+            score = 0; // Score becomes 0
+        }
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // library for scene management
+using UnityEngine.SceneManagement; // Library for scene management
 
 public class SceneChanger : MonoBehaviour
 {
@@ -19,13 +19,13 @@ public class SceneChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sceneNumber == 0) // in start scene
+        if (sceneNumber == 0) // In start scene
         {
             StartSceneControls();
-        } else if (sceneNumber == 1) // in main scene
+        } else if (sceneNumber == 1) // In main scene
         {
             MainSceneControls();
-        } else if (sceneNumber == 2) // in end scene
+        } else if (sceneNumber == 2) // In end scene
         {
             EndSceneControls();
         }
@@ -54,5 +54,10 @@ public class SceneChanger : MonoBehaviour
         {
             SceneManager.LoadScene("StartScene"); // Change to start scene
         }
+    }
+    // Function to move to new scene
+    public void MoveToScene(int sceneID)
+    {
+        SceneManager.LoadScene(sceneID);
     }
 }
