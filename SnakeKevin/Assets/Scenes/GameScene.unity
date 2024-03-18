@@ -864,7 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 1, y: 0, z: 0}
   bodyPrefab: {fileID: 7176945706664443763, guid: 14b482adfc2f3ed4c98e31ed12b97e04, type: 3}
-  mySceneChanger: {fileID: 0}
+  mySceneChanger: {fileID: 694097330}
   myManager: {fileID: 694097329}
 --- !u!1 &1773416170
 GameObject:
