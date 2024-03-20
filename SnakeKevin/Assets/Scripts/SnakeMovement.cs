@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq; // Library to use list
+using TMPro; // library for the text mesh pro
 
 public class SnakeMovement : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SnakeMovement : MonoBehaviour
     private bool atePoison = false; // Boolean for whether the snake ate a poison food
     private float poisonTimer = 0; // Timer to keep track of time left after eating poison food
     public GameObject bodyPrefab; // Grab snake body to spawn after eating
+    public TextMeshProUGUI foodText; // Get the food text
     public SceneChanger mySceneChanger; // Grab the scene changer script
     public GameManager myManager; // Game manager script to update score
 
@@ -34,6 +36,7 @@ public class SnakeMovement : MonoBehaviour
             else // The timer ends
             {
                 atePoison = false; // Snake is healthy so set atePoison to false
+                foodText.text = ""; // Hide the text 
             }
         }
     }
@@ -81,10 +84,12 @@ public class SnakeMovement : MonoBehaviour
         if (collision.gameObject.tag == "Food") // Collide with food
         {
             ateFood = true; // Set bool to true
-            if (collision.gameObject.name.Contains("Poison")) {
+            if (collision.gameObject.name.Contains("Poison"))
+            {
                 myManager.Decrease(3); // Decrease score after eating poison food
-                atePoison = true;
-                poisonTimer = 10f;
+                atePoison = true; // Ate poison
+                foodText.text = "Stop Eating!"; // Show the text after eating a poison food
+                poisonTimer = 10f; // Set time to 10 seconds
             } else if (atePoison) // Snake is poisoned
             {
                 myManager.Decrease(1); // Eating food will decrease score

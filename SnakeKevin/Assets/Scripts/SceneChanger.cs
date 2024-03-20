@@ -20,6 +20,6 @@ public class SceneChanger : MonoBehaviour
     // Change current scene to another
     public void ChangeScene(int sceneID)
     {
-        SceneManager.LoadScene(sceneID); // Change the scene to the specific scene ID
+         SceneManager.LoadScene(sceneID); // Change the scene to the specific scene ID
     }
 }
