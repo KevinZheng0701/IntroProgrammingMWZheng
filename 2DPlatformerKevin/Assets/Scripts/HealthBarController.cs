@@ -7,7 +7,7 @@ public class HealthBarController : MonoBehaviour
 {
     // Global Variable
     public Slider slider; // Get slider of the health bar
-    public int Health = 10;
+    public int Health = 10; // Health
 
     // Start is called before the first frame update
     void Start()

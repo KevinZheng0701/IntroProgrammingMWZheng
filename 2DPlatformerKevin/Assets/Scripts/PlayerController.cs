@@ -12,9 +12,12 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 10; // Max health of player
     public int currentHealth; // Current health of player
     public HealthBarController healthBarScript; // Health bar script
+
     // Start is called before the first frame update
     void Start()
     {
+        playerSpeed = 0.02f; // Set the speed of the player
+        jumpForce = 300; // Set the jump force of the player
         currentHealth = maxHealth; // Set the health to max
         healthBarScript.SetMaxHealth(maxHealth); // Set the health bar to the max health
     }
@@ -22,9 +25,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
-        Jump();
-        Fall();
+        MovePlayer(); // Move the player around
+        Jump(); // Allows the player to jum
+        Fall(); // Allows the player to fall faster
     }
 
     // Move the player left and right
@@ -63,7 +66,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true; // Player is jumping
         }
     }
-    // Detect collisions
+    // Detects collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Surface") // Collide with the ground
