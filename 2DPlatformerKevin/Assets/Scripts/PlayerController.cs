@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeed = 0.02f; // Set the speed of the player
+        playerSpeed = 0.015f; // Set the speed of the player
         jumpForce = 300; // Set the jump force of the player
         currentHealth = maxHealth; // Set the health to max
         healthBarScript.SetMaxHealth(maxHealth); // Set the health bar to the max health

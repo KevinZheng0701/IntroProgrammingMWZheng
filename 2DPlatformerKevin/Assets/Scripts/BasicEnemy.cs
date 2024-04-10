@@ -22,6 +22,7 @@ public class BasicEnemy : MonoBehaviour
     {
         EnemyMovement(); // Allows the enemy to move
     }
+
     // Detects collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,7 +32,7 @@ public class BasicEnemy : MonoBehaviour
         }
     }
     // Movement logic for enemy
-    private void EnemyMovement()sa
+    private void EnemyMovement()
     {
         if (patrolDestination == 0) // Move towards patrol point 0
         {
