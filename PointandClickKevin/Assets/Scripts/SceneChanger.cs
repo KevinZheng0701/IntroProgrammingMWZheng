@@ -58,6 +58,6 @@ public class SceneChanger : MonoBehaviour
     // Function to move to new scene
     public void MoveToScene(int sceneID)
     {
-        SceneManager.LoadScene(sceneID);
+        SceneManager.LoadScene(sceneID); // Load the new scene
     }
 }

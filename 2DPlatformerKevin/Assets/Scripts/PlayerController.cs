@@ -12,21 +12,22 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 10; // Max health of player
     public int currentHealth; // Current health of player
     public HealthBarController healthBarScript; // Health bar script
+    public SceneChanger sceneManagmentScript; // Scene management script
 
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeed = 0.015f; // Set the speed of the player
+        playerSpeed = 0.005f; // Set the speed of the player
         jumpForce = 300; // Set the jump force of the player
         currentHealth = maxHealth; // Set the health to max
         healthBarScript.SetMaxHealth(maxHealth); // Set the health bar to the max health
     }
 
-    // Update is called once per frame
+    // Update is called once per framess
     void Update()
     {
         MovePlayer(); // Move the player around
-        Jump(); // Allows the player to jum
+        Jump(); // Allows the player to jump
         Fall(); // Allows the player to fall faster
     }
 
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Surface") // Collide with the ground
         {
             isJumping = false; // Set to false since player is on the ground
+            playerBody.velocity = new Vector3(0, 0, 0); // Reset the moving momentum
         }
         if (collision.gameObject.tag == "Damage") // Collide with the ground
         {
@@ -83,5 +85,9 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= damage; // Decrease health by damage
         healthBarScript.SetHealth(currentHealth); // Update the health bar
+        if (currentHealth < 0) // Player health is below 0
+        {
+            sceneManagmentScript.MoveToScene(2); // Change the scene to the end scene
+        }
     }
 }
