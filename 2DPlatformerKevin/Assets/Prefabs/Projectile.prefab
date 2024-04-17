@@ -139,3 +139,4 @@ MonoBehaviour:
   projectileRb: {fileID: 8902447214110676039}
   speed: 8
   projectileLife: 1
+  playerControllerScript: {fileID: 0}

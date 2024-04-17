@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileLauncher : MonoBehaviour
 {
+    // Global Variables
     public GameObject projectilePrefab; // Get projectile gameobject
     public Transform launchPoint; // Position of the launch point
     public float cooldown = 1; // Time of the cooldown

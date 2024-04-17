@@ -19,7 +19,7 @@ public class ProjectileMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (projectileCount > 0) {
+        if (projectileCount > 0) { // Projectile is still alive
             projectileCount -= Time.deltaTime; // Reduce the lifetime of the projectile
         } else { // Timer is up
             Destroy(gameObject); // Projectile is gone
