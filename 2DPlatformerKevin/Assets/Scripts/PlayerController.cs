@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         Vector3 newPosition = transform.position; // The current position of the player
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // Left keys are pressed
         {
-            newPosition.x -= playerSpeed; // Move to the left by player speed
+            newPosition.x -= playerSpeed; // Mov eto the left by player speed
             facingLeft = true; // Player should be facing left
             Flip(facingLeft); // Flip the direction
         }
