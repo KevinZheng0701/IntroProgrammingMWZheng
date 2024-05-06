@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public bool facingLeft = false; // Direction the player is facing
     public HealthBarController healthBarScript; // Health bar script
     public SceneChanger sceneManagmentScript; // Scene management script
+    public AudioSource damageAudio; // Sound effect for taking damage
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +85,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Damage") // Collide with the ground
         {
             TakeDamage(1); // Decrement health by 1
+            damageAudio.Play(): // Play the damage sound effect
         }
     }
     // Player takes a certain damage
