@@ -9,6 +9,7 @@ public class ProjectileLauncher : MonoBehaviour
     public Transform launchPoint; // Position of the launch point
     public float cooldown = 1; // Time of the cooldown
     private float cooldownCount; // Timer between next fire
+
     // Start is called before the first frame update
     void Start()
     {

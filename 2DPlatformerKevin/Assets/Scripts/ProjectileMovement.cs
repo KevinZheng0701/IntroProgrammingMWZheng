@@ -10,7 +10,7 @@ public class ProjectileMovement : MonoBehaviour
     public float projectileLife = 1; // Lifetime of the projectile
     private float projectileCount; // Timer for the projectile
     public PlayerController playerControllerScript; // Get the script of the player controller
-    public float facingLeft; // Direction of the projectile
+    public bool facingLeft; // Direction of the projectile
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class ProjectileMovement : MonoBehaviour
         projectileCount = projectileLife; // Set the count to the projectile life
         playerControllerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>(); // Finds the player controller script
         facingLeft = playerControllerScript.facingLeft; // Set the direction of the projectile to that of the player
-        if (facingLeft) // Character is facing right
+        if (facingLeft) // Character is facing left
         {
             transform.rotation = Quaternion.Euler(0, 180, 0); // Rotate the projectile
             speed = -speed; // Make the projectile move in the opposite direction

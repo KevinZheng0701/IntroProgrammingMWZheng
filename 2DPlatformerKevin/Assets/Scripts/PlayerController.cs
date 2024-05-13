@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Damage") // Collide with the ground
         {
             TakeDamage(1); // Decrement health by 1
-            damageAudio.Play(): // Play the damage sound effect
+            damageAudio.Play(); // Play the damage sound effect
         }
     }
     // Player takes a certain damage
@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
     {
         if (facingLeft && !flippedLeft) // Player is facing left but sprite hasn't been flipped
         {
-            transform.Rotate(0, -180, 0); // Flip the sprite
+            transform.Rotate(0, 180, 0); // Flip the sprite
             flippedLeft = true; // Set flipped to true
         } else if (!facingLeft && flippedLeft) // Player is facing right but sprite hasn't been flipped
         {

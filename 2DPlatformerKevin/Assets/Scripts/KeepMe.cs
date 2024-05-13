@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeepMe : MonoBehaviour
 {
     // Global varaibles
-    public static GameObject instance;
+    public static GameObject instance; // Instance of an game object
 
     // Start is called before the first frame update
     void Start()
@@ -22,15 +22,13 @@ public class KeepMe : MonoBehaviour
     // Called when the scripts are loading
     private void Awake()
     {
-        // Instance hasn't been set
-        if(instance == null) 
+        if(instance == null) // Instance hasn't been set
         {
-            instance = gameObject; // Set the instance to the gameobject it is attached to
-            DontDestroyOnLoad(gameObject); // Prevent the gameobject from being destroyed when loadingkoi99
+            instance = gameObject; // Set the instance to the game object it is attached to
+            DontDestroyOnLoad(gameObject); // Prevent the game object from being destroyed when loadingkoi99
         } else // Instance is already set
         {
             Destroy(gameObject); // Destroy duplicate instance
         }
     }
-
 }

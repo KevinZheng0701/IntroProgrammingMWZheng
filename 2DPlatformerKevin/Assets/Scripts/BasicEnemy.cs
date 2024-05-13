@@ -7,7 +7,7 @@ public class BasicEnemy : MonoBehaviour
     // Global Variables
     public int damage; // Damage the enemy do
     public PlayerController playerControllerScript; // Player control script
-    public Transform[] patrolPoints; // List of patrol points
+    public Vector3[] patrolPoints; // List of patrol points
     public float moveSpeed = 3; // Move speed of enemy
     public int patrolDestination; // The destination for the enemy to move
 
@@ -34,19 +34,14 @@ public class BasicEnemy : MonoBehaviour
     // Movement logic for enemy
     private void EnemyMovement()
     {
-        if (patrolDestination == 0) // Move towards patrol point 0
+        if (patrolDestination >= patrolPoints.Length) // The destination is greater than the amount of patrol points
         {
-            transform.position = Vector3.MoveTowards(transform.position, patrolPoints[0].transform.position, moveSpeed * Time.deltaTime); // Move the enemy towards patrol point 0
-            if (Vector3.Distance(transform.position, patrolPoints[0].transform.position) < 0.05f) // Enemy got close to destination
-            {
-                patrolDestination = 1; // Update destination to patrol point 1
-            }
-        } else if (patrolDestination == 1) { // Move towards patrol point 1
-            transform.position = Vector3.MoveTowards(transform.position, patrolPoints[1].transform.position, moveSpeed * Time.deltaTime); // Move the enemy towards patrol point 1
-            if (Vector3.Distance(transform.position, patrolPoints[1].transform.position) < 0.05f) // Enemy got close to destination
-            {
-                patrolDestination = 0; // Update destination to patrol point 0
-            }
+            patrolDestination = 0; // Reset to first patrol point
+        }
+        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[patrolDestination], moveSpeed * Time.deltaTime); // Move the enemy towards patrol point
+        if (Vector3.Distance(transform.position, patrolPoints[patrolDestination]) < 0.05f) // Enemy got close to destination
+        {
+            patrolDestination += 1; // Update destination to the next patrol point
         }
     }
 }
