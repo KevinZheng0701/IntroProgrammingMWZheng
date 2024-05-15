@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Surface
   - Damage
+  - Boss
   layers:
   - Default
   - TransparentFX

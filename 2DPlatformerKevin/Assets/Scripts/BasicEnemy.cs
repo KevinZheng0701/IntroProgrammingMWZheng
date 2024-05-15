@@ -10,6 +10,8 @@ public class BasicEnemy : MonoBehaviour
     public Vector3[] patrolPoints; // List of patrol points
     public float moveSpeed = 3; // Move speed of enemy
     public int patrolDestination; // The destination for the enemy to move
+    public float cooldown = 1; // Time of the cooldown
+    private float cooldownCount; // Timer between next damage
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +32,20 @@ public class BasicEnemy : MonoBehaviour
         {
             playerControllerScript.TakeDamage(damage); // Deals damage to player
         }
+        cooldownCount = cooldown; // Set the cooldown timer to cooldown
     }
+
+    // Detects staying collisions
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (cooldownCount > 0) // Cooldown timer is positive
+        {
+            cooldownCount -= Time.deltaTime; // Decrease cooldown time
+        } else {
+            OnCollisionEnter2D(collision); // Check if the player is still colliding with the enemy
+        }
+    }
+
     // Movement logic for enemy
     private void EnemyMovement()
     {

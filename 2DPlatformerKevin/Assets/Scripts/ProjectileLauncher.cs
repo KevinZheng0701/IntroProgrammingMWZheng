@@ -27,10 +27,10 @@ public class ProjectileLauncher : MonoBehaviour
         }
     }
 
-    // Allows player to shoot projectiles
+    // Allows player and other characters to shoot projectiles
     private void shootProjectile()
     {
-        if (Input.GetMouseButtonDown(0)) // Detects left mouse button click
+        if (Input.GetMouseButtonDown(0)) // Detects left mouse button click or boss attacks
         {
             Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity); // Spawn the projectile
             cooldownCount = cooldown; // Set the cooldown timer

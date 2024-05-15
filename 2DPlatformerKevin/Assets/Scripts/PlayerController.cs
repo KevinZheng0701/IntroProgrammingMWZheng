@@ -9,18 +9,18 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed; // Speed of the player
     public float jumpForce; // Jump force of the player
     public bool isJumping = false; // Check if a player is jumping or not
-    public int maxHealth = 10; // Max health of player
+    public int maxHealth; // Max health of player
     public int currentHealth; // Current health of player
     public bool flippedLeft = false; // Direction the player sprite is facing
     public bool facingLeft = false; // Direction the player is facing
     public HealthBarController healthBarScript; // Health bar script
-    public SceneChanger sceneManagmentScript; // Scene management script
+    public SceneChanger sceneManagementScript; // Scene management script
     public AudioSource damageAudio; // Sound effect for taking damage
 
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeed = 0.015f; // Set the speed of the player
+        playerSpeed = 0.05f; // Set the speed of the player
         jumpForce = 300; // Set the jump force of the player
         currentHealth = maxHealth; // Set the health to max
         healthBarScript.SetMaxHealth(maxHealth); // Set the health bar to the max health
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         healthBarScript.SetHealth(currentHealth); // Update the health bar
         if (currentHealth < 0) // Player health is below 0
         {
-            sceneManagmentScript.MoveToScene(2); // Change the scene to the end scene
+            sceneManagementScript.MoveToScene(2); // Change the scene to the end scene
         }
     }
     // Rotate the player
