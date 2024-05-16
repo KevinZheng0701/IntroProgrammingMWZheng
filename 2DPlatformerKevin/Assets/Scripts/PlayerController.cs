@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeed = 0.05f; // Set the speed of the player
+        playerSpeed = 0.015f; // Set the speed of the player
         jumpForce = 300; // Set the jump force of the player
         currentHealth = maxHealth; // Set the health to max
         healthBarScript.SetMaxHealth(maxHealth); // Set the health bar to the max health
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         Vector3 newPosition = transform.position; // The current position of the player
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // Left keys are pressed
         {
-            newPosition.x -= playerSpeed; // Mov eto the left by player speed
+            newPosition.x -= playerSpeed; // Move to the left by player speed
             facingLeft = true; // Player should be facing left
             Flip(facingLeft); // Flip the direction
         }
