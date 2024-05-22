@@ -9,6 +9,7 @@ public class ProjectileLauncher : MonoBehaviour
     public Transform launchPoint; // Position of the launch point
     public float cooldown = 1; // Time of the cooldown
     private float cooldownCount; // Timer between next fire
+    public AudioSource fireAudio; // Sound effect for taking damage
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class ProjectileLauncher : MonoBehaviour
         {
             Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity); // Spawn the projectile
             cooldownCount = cooldown; // Set the cooldown timer
+            fireAudio.Play(); // Play the fire sound effect
         }
     }
 }

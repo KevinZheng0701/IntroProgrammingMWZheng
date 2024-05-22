@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeed = 0.015f; // Set the speed of the player
+        playerSpeed = 5; // Set the speed of the player
         jumpForce = 300; // Set the jump force of the player
         currentHealth = maxHealth; // Set the health to max
         healthBarScript.SetMaxHealth(maxHealth); // Set the health bar to the max health
@@ -40,13 +40,13 @@ public class PlayerController : MonoBehaviour
         Vector3 newPosition = transform.position; // The current position of the player
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // Left keys are pressed
         {
-            newPosition.x -= playerSpeed; // Move to the left by player speed
+            newPosition.x -= playerSpeed * Time.deltaTime; // Move to the left by player speed
             facingLeft = true; // Player should be facing left
             Flip(facingLeft); // Flip the direction
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // Right keys are pressed
         {
-            newPosition.x += playerSpeed; // Move to the right by player speed
+            newPosition.x += playerSpeed * Time.deltaTime; // Move to the right by player speed
             facingLeft = false; // Player should be facing right
             Flip(facingLeft); //  Flip the direction
         }
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerBody.velocity = new Vector3(0, 0, 0); // Reset the moving momentum
             }
-            newPosition.y -= playerSpeed; // Make player fall faster
+            newPosition.y -= playerSpeed * Time.deltaTime; // Make player fall faster
         }
     }
     // Allows player to jump
@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Damage") // Collide with the ground
         {
             TakeDamage(1); // Decrement health by 1
-            damageAudio.Play(); // Play the damage sound effect
         }
     }
     // Player takes a certain damage
@@ -93,6 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= damage; // Decrease health by damage
         healthBarScript.SetHealth(currentHealth); // Update the health bar
+        damageAudio.Play(); // Play the damage sound effect
         if (currentHealth < 0) // Player health is below 0
         {
             sceneManagementScript.MoveToScene(2); // Change the scene to the end scene

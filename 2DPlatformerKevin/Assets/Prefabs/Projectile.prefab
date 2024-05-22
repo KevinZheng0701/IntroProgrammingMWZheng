@@ -142,3 +142,4 @@ MonoBehaviour:
   playerControllerScript: {fileID: 0}
   bossLogicScript: {fileID: 0}
   facingLeft: 0
+  hitAudio: {fileID: 0}
