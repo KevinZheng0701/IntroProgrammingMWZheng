@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossLogic : MonoBehaviour
 {
+    // Global Variables
     public int maxHealth; // Max health of boss
     public int currentHealth; // Current health of boss
     public HealthBarController healthBarScript; // Health bar script

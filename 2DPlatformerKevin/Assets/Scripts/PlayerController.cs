@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
             isJumping = false; // Set to false since player is on the ground
             playerBody.velocity = new Vector3(0, 0, 0); // Reset the moving momentum
         }
-        if (collision.gameObject.tag == "Damage") // Collide with the ground
+        if (collision.gameObject.tag == "Damage") // Collide with the spikes
         {
             TakeDamage(1); // Decrement health by 1
         }
